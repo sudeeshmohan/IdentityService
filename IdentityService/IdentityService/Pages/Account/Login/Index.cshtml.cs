@@ -6,6 +6,7 @@ using Duende.IdentityServer.Events;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Stores;
+using IdentityService.Model;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -21,7 +22,8 @@ namespace IdentityService.Pages.Login
 
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IEventService _events;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IIdentityProviderStore _identityProviderStore;
 
@@ -35,7 +37,8 @@ namespace IdentityService.Pages.Login
             IAuthenticationSchemeProvider schemeProvider,
             IIdentityProviderStore identityProviderStore,
             IEventService events,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager)
         {
             // this is where you would plug in your own custom identity management library (e.g. ASP.NET Identity)
 
@@ -44,6 +47,7 @@ namespace IdentityService.Pages.Login
             _identityProviderStore = identityProviderStore;
             _events = events;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> OnGet(string? returnUrl)

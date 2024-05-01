@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/IdentityService/.vs/IdentityService/FileContentIndex
+*.config
+/IdentityService/.vs/IdentityService/DesignTimeBuild/.dtbcache.v2
+/IdentityService/.vs/IdentityService/v17/.suo
+/IdentityService/IdentityService/bin/Debug/net8.0/IdentityService.dll
+/IdentityService/IdentityService/bin/Debug/net8.0/IdentityService.exe
+/IdentityService/IdentityService/bin/Debug/net8.0/IdentityService.pdb
+/IdentityService/IdentityService/obj/Debug/net8.0/ref/IdentityService.dll
+/IdentityService/IdentityService/obj/Debug/net8.0/refint/IdentityService.dll
+/IdentityService/IdentityService/obj/Debug/net8.0/apphost.exe
+/IdentityService/IdentityService/obj/Debug/net8.0/IdentityService.AssemblyInfoInputs.cache
+/IdentityService/IdentityService/obj/Debug/net8.0/IdentityService.AssemblyInfo.cs
+/IdentityService/IdentityService/obj/Debug/net8.0/IdentityService.csproj.FileListAbsolute.txt
+/IdentityService/IdentityService/obj/Debug/net8.0/IdentityService.dll
+/IdentityService/IdentityService/obj/Debug/net8.0/IdentityService.pdb
+*.json
