@@ -36,10 +36,9 @@ namespace IdentityService
                     options.Events.RaiseSuccessEvents = true;
 
                     // see https://docs.duendesoftware.com/identityserver/v5/fundamentals/resources/
-                    options.EmitStaticAudienceClaim = true;
+                    //options.EmitStaticAudienceClaim = true;
                 })
-
-                //.AddTestUsers(TestUsers.Users)
+                .AddAspNetIdentity<ApplicationUser>()
 
 
                 // this adds the config data from DB (clients, resources, CORS)
@@ -71,7 +70,10 @@ namespace IdentityService
                     options.ClientId = "copy client ID from Google here";
                     options.ClientSecret = "copy client secret from Google here";
                 });
-
+            builder.Services.ConfigureApplicationCookie(option =>
+            {
+                option.Cookie.SameSite = SameSiteMode.Lax;
+            });
 
             // this adds the necessary config for the simple admin/config pages
             {
@@ -88,9 +90,6 @@ namespace IdentityService
                 builder.Services.AddTransient<IdentityScopeRepository>();
                 builder.Services.AddTransient<ApiScopeRepository>();
             }
-
-
-
             return builder.Build();
         }
 
