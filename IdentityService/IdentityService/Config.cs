@@ -47,7 +47,7 @@ namespace IdentityService
                     ClientId = "interactive",
                     ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
 
-                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
 
                     RedirectUris = { "https://localhost:44300/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44300/signout-oidc",
@@ -56,6 +56,10 @@ namespace IdentityService
                     AllowOfflineAccess = true,
                     AllowedScopes = { "openid", "profile", "scope1.read" },
                     RequireConsent = true,
+                    AlwaysSendClientClaims = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    AllowRememberConsent = true,
+
                 },
             };
     }

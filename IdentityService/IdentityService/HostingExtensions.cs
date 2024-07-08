@@ -23,6 +23,7 @@ namespace IdentityService
             builder.Services.AddDbContext<ApplicationDbContext>(option =>
             {
                 option.UseSqlServer(connectionString, sqlOption => sqlOption.MigrationsAssembly(migrationAssembly));
+
             });
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -34,6 +35,7 @@ namespace IdentityService
                     options.Events.RaiseInformationEvents = true;
                     options.Events.RaiseFailureEvents = true;
                     options.Events.RaiseSuccessEvents = true;
+                    options.KeyManagement.Enabled = false;
 
                     // see https://docs.duendesoftware.com/identityserver/v5/fundamentals/resources/
                     //options.EmitStaticAudienceClaim = true;

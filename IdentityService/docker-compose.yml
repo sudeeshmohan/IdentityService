@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  identitydb:
+    image:  mcr.microsoft.com/mssql/server:2017-latest
+  identityservice:
+    image: ${DOCKER_REGISTRY-}identityservice
+    build:
+      context: .
+      dockerfile: IdentityService/Dockerfile
